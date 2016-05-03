@@ -1,0 +1,48 @@
+.form {
+  padding: 1em;
+  width: 80%;
+  margin: 0 auto;
+  text-align:left;
+}
+
+.title {
+    padding: 0.3em 0 1em;
+    margin: 1em 0.3em;
+    font-size: 2em;
+    border-bottom: solid 1px #ccc;
+}
+
+.button {
+  padding: 1em;
+  margin:1em 0.6em;
+  border: none;
+  background: #CED1CE;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-property: transform, box-shadow;
+  transition-property: transform, box-shadow;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.button:hover {
+  /*background: #ccc;*/
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 0.2em 0.3em rgba(170, 170, 170, 3);
+}
+
+.button:focus, .button:active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
