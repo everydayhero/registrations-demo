@@ -10,7 +10,6 @@ export default React.createClass({
       <div className="wrapper">
         <ul className={menu}>
           <li><IndexLink to="/">Home</IndexLink></li>
-          <li><Link to="/simpleform">Simple form</Link></li>
           <li><Link to="/dragon">A DRAGON!</Link></li>
           <li><Link to="/not-dragon">An old URL to a DRAGON!</Link></li>
         </ul>
