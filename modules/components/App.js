@@ -2,7 +2,6 @@ import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import { menu } from './styles.css'
 import Title from 'react-title-component'
-import '../../env'
 
 export default React.createClass({
   render() {
