@@ -11,7 +11,8 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run react-project:start:prod || npm run react-project:start:dev",
     "test": "karma start",
-    "react-project:start:dev": "eslint modules && react-project start",
+    "lint": "standard --verbose | snazzy",
+    "react-project:start:dev": "npm run lint && react-project start",
     "react-project:start:prod": "rm -rf .build && react-project build && node .build/server.js"
   },
   "author": "everydayhero",
@@ -66,5 +67,9 @@
     "url-loader": "0.5.7",
     "webpack": "1.12.14",
     "webpack-dev-server": "1.14.1"
+  },
+  "devDependencies": {
+    "snazzy": "4.0.0",
+    "standard": "7.0.1"
   }
 }
