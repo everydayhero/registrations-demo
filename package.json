@@ -71,5 +71,11 @@
   "devDependencies": {
     "snazzy": "4.0.0",
     "standard": "7.0.1"
+  },
+  "standard": {
+    "globals": [
+      "location",
+      "fetch"
+    ]
   }
 }

@@ -9,12 +9,12 @@ import SimpleForm from './components/SimpleForm'
 
 export default (
   <Route>
-    <Route path="/" component={App}>
-      <IndexRoute component={SimpleForm}/>
+    <Route path='/' component={App}>
+      <IndexRoute component={SimpleForm} />
     </Route>
-    <ServerRoute path="/api">
-      <ServerRoute path=":hello" get={hello}/>
+    <ServerRoute path='/api'>
+      <ServerRoute path=':hello' get={hello} />
     </ServerRoute>
-    <Route path="*" status={404} component={NoMatch}/>
+    <Route path='*' status={404} component={NoMatch} />
   </Route>
 )

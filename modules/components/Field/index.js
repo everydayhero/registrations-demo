@@ -11,18 +11,18 @@ export default React.createClass({
     error: React.PropTypes.string
   },
 
-  errorMessage() {
+  errorMessage () {
     let props = this.props
     return props.touched && props.error &&
       (<div className={error}>{props.error}</div>)
   },
 
-  render() {
+  render () {
     let props = this.props
     return (
       <div className={field}>
         <label className={label}>{props.label}</label>
-        <input type="text" className={input} {...props}/>
+        <input type='text' className={input} {...props} />
         {this.errorMessage()}
       </div>
     )

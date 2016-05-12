@@ -5,13 +5,13 @@ import store from '../../store'
 import { Provider } from 'react-redux'
 
 export default React.createClass({
-  getInitialState() {
+  getInitialState () {
     return {
       errorMessage: ''
     }
   },
 
-  onSubmit(data) {
+  onSubmit (data) {
     return new Promise((resolve, reject) => {
       const postData = {
         name: data.pagename,
@@ -52,10 +52,10 @@ export default React.createClass({
     })
   },
 
-  render() {
+  render () {
     return (
       <div>
-        <Title render={prev => `${prev} | SimpleForm`}/>
+        <Title render={prev => `${prev} | SimpleForm`} />
         <Provider store={store}>
           <Form errorMessage={this.state.errorMessage} onSubmit={this.onSubmit} />
         </Provider>
