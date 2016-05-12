@@ -5,6 +5,11 @@ import store from '../../store'
 import { Provider } from 'react-redux'
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      errorMessage: ''
+    }
+  },
 
   onSubmit(data) {
     return new Promise((resolve, reject) => {
@@ -27,12 +32,21 @@ export default React.createClass({
         },
         body: JSON.stringify(postData)
       })
-      .then(function (res) {
+      .then((res) => {
         return res.json()
       })
-      .then(function (json) {
-        location.href = json.activation_url
-        resolve()
+      .then((json) => {
+        if (json.error) {
+          const fieldErrors = json.error.errors.reduce((acc, error) => {
+            acc.push(`<li>${error.field} ${error.code}</li>`)
+            return acc
+          }, []).join('')
+          this.setState({errorMessage: `${json.error.message}<ul>${fieldErrors}</ul>`})
+          reject()
+        } else {
+          location.href = json.activation_url
+          resolve()
+        }
       })
       .catch(reject)
     })
@@ -42,9 +56,8 @@ export default React.createClass({
     return (
       <div>
         <Title render={prev => `${prev} | SimpleForm`}/>
-
         <Provider store={store}>
-          <Form onSubmit={this.onSubmit} />
+          <Form errorMessage={this.state.errorMessage} onSubmit={this.onSubmit} />
         </Provider>
       </div>
     )
