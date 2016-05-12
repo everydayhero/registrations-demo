@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
-import { title, form, button } from './styles.css'
+import { title, form, button, error } from './styles.css'
 import Field from '../Field'
 
 export const fields = [ 'pagename', 'username', 'phone', 'email' ]
@@ -25,11 +25,18 @@ const validate = (values) => {
 }
 
 class SimpleRegistrationForm extends Component {
+  errorMessage() {
+    const { submitting, errorMessage } = this.props
+    return !submitting && errorMessage &&
+      <div className={error} dangerouslySetInnerHTML={{ __html: errorMessage }}></div>
+  }
+
   render() {
     const { fields: { pagename, username, phone, email }, resetForm, handleSubmit, submitting } = this.props
     return (
       <form className={form} onSubmit={handleSubmit}>
         <h1 className={title}>Registration Demo</h1>
+        {this.errorMessage()}
         <Field label="Page name" placeholder="My Demo Page" {...pagename}/>
         <Field label="Your name" placeholder="Tom Thumb" {...username}/>
         <Field label="Your phone" placeholder="(07) 1234 5678" {...phone}/>
@@ -52,7 +59,8 @@ SimpleRegistrationForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   resetForm: PropTypes.func.isRequired,
-  submitting: PropTypes.bool.isRequired
+  submitting: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string
 }
 
 export default reduxForm({
