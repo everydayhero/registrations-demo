@@ -27,9 +27,9 @@ class SimpleRegistrationForm extends Component {
     return (
       <form className={form} onSubmit={handleSubmit}>
         <h1 className={title}>Registration Demo</h1>
-        <Field label="Page name" {...pagename}/>
-        <Field label="Your name" {...username}/>
-        <Field label="Your email" {...email}/>
+        <Field label="Page name" placeholder="My Demo Page" {...pagename}/>
+        <Field label="Your name" placeholder="Tom Thumb" {...username}/>
+        <Field label="Your email" placeholder="your@email.com" {...email}/>
         <div>
           <button type="submit" className={button} disabled={submitting}>
             {submitting ? <i/> : <i/>} Submit

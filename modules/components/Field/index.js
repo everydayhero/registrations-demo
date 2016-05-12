@@ -6,6 +6,7 @@ export default React.createClass({
 
   propTypes: {
     label: React.PropTypes.string.isRequired,
+    placeholder: React.PropTypes.string,
     touched: React.PropTypes.bool,
     error: React.PropTypes.string
   },
