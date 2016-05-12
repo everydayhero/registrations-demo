@@ -25,27 +25,27 @@ const validate = (values) => {
 }
 
 class SimpleRegistrationForm extends Component {
-  errorMessage() {
+  errorMessage () {
     const { submitting, errorMessage } = this.props
     return !submitting && errorMessage &&
       <div className={error} dangerouslySetInnerHTML={{ __html: errorMessage }}></div>
   }
 
-  render() {
+  render () {
     const { fields: { pagename, username, phone, email }, resetForm, handleSubmit, submitting } = this.props
     return (
       <form className={form} onSubmit={handleSubmit}>
         <h1 className={title}>Registration Demo</h1>
         {this.errorMessage()}
-        <Field label="Page name" placeholder="My Demo Page" {...pagename}/>
-        <Field label="Your name" placeholder="Tom Thumb" {...username}/>
-        <Field label="Your phone" placeholder="(07) 1234 5678" {...phone}/>
-        <Field label="Your email" placeholder="your@email.com" {...email}/>
+        <Field label='Page name' placeholder='My Demo Page' {...pagename} />
+        <Field label='Your name' placeholder='Tom Thumb' {...username} />
+        <Field label='Your phone' placeholder='(07) 1234 5678' {...phone} />
+        <Field label='Your email' placeholder='your@email.com' {...email} />
         <div>
-          <button type="submit" className={button} disabled={submitting}>
-            {submitting ? <i/> : <i/>} Submit
+          <button type='submit' className={button} disabled={submitting}>
+            {submitting ? <i /> : <i />} Submit
           </button>
-          <button type="button" className={button} disabled={submitting} onClick={resetForm}>
+          <button type='button' className={button} disabled={submitting} onClick={resetForm}>
             Clear Values
           </button>
         </div>
