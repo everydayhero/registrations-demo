@@ -5,8 +5,8 @@ import store from '../../store'
 import { Provider } from 'react-redux'
 
 export default React.createClass({
-  onSubmit(data) {
 
+  onSubmit(data) {
     const postData = {
       name: data.pagename,
       campaign_id: 'au-6018',
@@ -14,7 +14,8 @@ export default React.createClass({
       target: '500.50',
       charity_id: 'au-2510',
       user_name: data.username,
-      user_email: data.email
+      user_email: data.email,
+      user_phone: data.phone
     }
 
     fetch('https://everydayhero-staging.com/api/v3/pages?access_token=' + process.env.ACCESS_TOKEN, {

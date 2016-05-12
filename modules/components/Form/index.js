@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form'
 import { title, form, button } from './styles.css'
 import Field from '../Field'
 
-export const fields = [ 'pagename', 'username', 'email' ]
+export const fields = [ 'pagename', 'username', 'phone', 'email' ]
 
 const validate = (values) => {
   const errors = {}
@@ -12,6 +12,9 @@ const validate = (values) => {
   }
   if (!values.username) {
     errors.username = 'Required'
+  }
+  if (!values.phone) {
+    errors.phone = 'Required'
   }
   if (!values.email) {
     errors.email = 'Required'
@@ -23,12 +26,13 @@ const validate = (values) => {
 
 class SimpleRegistrationForm extends Component {
   render() {
-    const { fields: { pagename, username, email }, resetForm, handleSubmit, submitting } = this.props
+    const { fields: { pagename, username, phone, email }, resetForm, handleSubmit, submitting } = this.props
     return (
       <form className={form} onSubmit={handleSubmit}>
         <h1 className={title}>Registration Demo</h1>
         <Field label="Page name" placeholder="My Demo Page" {...pagename}/>
         <Field label="Your name" placeholder="Tom Thumb" {...username}/>
+        <Field label="Your phone" placeholder="(07) 1234 5678" {...phone}/>
         <Field label="Your email" placeholder="your@email.com" {...email}/>
         <div>
           <button type="submit" className={button} disabled={submitting}>
